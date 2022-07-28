@@ -1,0 +1,31 @@
+{
+  "name": "rn-normalized",
+  "version": "0.0.1",
+  "description": "simple function to make React Native app responsive easily",
+  "main": "index.ts",
+  "scripts": {
+    "test": "yarn test",
+    "examples": "npm pack && cd examples && yarn add ../rn-normalize-*.tgz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZohaibNaseer786/react-native-normalized.git"
+  },
+  "keywords": [
+    "React Native",
+    "Typescript",
+    "Responsive",
+    "Normalize",
+    "Normalized",
+    "react-native",
+    "react",
+    "react-native-normalize",
+    "rn-normalized"
+  ],
+  "author": "Mian Zohaib Naseer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZohaibNaseer786/react-native-normalized/issues"
+  },
+  "homepage": "https://github.com/ZohaibNaseer786/react-native-normalized#readme"
+}

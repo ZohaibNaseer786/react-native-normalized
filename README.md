@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
-[![npm version](https://badge.fury.io/js/react-native-normalize.svg)](https://badge.fury.io/js/react-native-normalize)
+[![npm version](https://badge.fury.io/js/react-native-normalize.svg)](https://www.npmjs.com/package/rn-normalized)
 
 ### Without `normalized`
 <img src="https://i.imgur.com/bLbnjsC.jpg" width="600"/>
@@ -14,6 +14,9 @@
 
 It comes with a function `normalized` that will adapt a value depending on the screen's width or height so you can use it for `width, height, top, bottom, fontSize, borderRadius,...`
 
+```bash
+$ yarn add rn-normalized
+```
 
 ```javascript
 // on iPhone 8

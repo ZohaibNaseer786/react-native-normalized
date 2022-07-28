@@ -14,6 +14,7 @@
 
 It comes with a function `normalized` that will adapt a value depending on the screen's width or height so you can use it for `width, height, top, bottom, fontSize, borderRadius,...`
 
+# Installation
 ```bash
 $ yarn add rn-normalized
 ```

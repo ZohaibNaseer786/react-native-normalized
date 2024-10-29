@@ -1,48 +1,25 @@
-import { Dimensions, PixelRatio } from 'react-native';
+import { Dimensions, Platform, PixelRatio } from 'react-native';
 
-const WINDOW_WIDTH = Dimensions.get('window')?.width;
-const WINDOW_HEIGHT = Dimensions.get('window')?.height;
+export var { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get(
+    'window',
+);
 
-type WidthPercentageToDP = (
-  widthPercent: string | number,
-  max?: number,
-  min?: number
-) => number;
-type HeightPercentageToDP = (
-  heightPercent: string | number,
-  max?: number,
-  min?: number
-) => number;
+// based on iPhone 8's scale
+// const wscale: number = SCREEN_WIDTH / 320;
 
-const wp: WidthPercentageToDP = (widthPercent, max, min) => {
-  // Parse string percentage input and convert ‰it to number.
-  const elemWidth = typeof widthPercent === 'number' ? widthPercent : parseFloat(widthPercent);
+const wscale: number = SCREEN_WIDTH / 375
+const hscale: number = SCREEN_HEIGHT / 667;
 
-  // Use PixelRatio.roundToNearestPixel method in order to round the layout
-  // size (dp) to the nearest one that correspons to an integer number of pixels.
-  let finalValue = PixelRatio.roundToNearestPixel(
-    (WINDOW_WIDTH * elemWidth) / 100
-  );
-  if (min) finalValue = finalValue >= min ? min : finalValue;
-  if (max) finalValue = finalValue <= max ? finalValue : max;
-  return finalValue;
-};
+export default function normalize(
+    size: number,
+    based: 'width' | 'height' = 'width',
+) {
 
-const hp: HeightPercentageToDP = (heightPercent, max, min) => {
-  // Parse string percentage input and convert it to number.
-  const elemHeight = typeof heightPercent === 'number'
-      ? heightPercent
-      : parseFloat(heightPercent);
+    const newSize = based === 'height' ? size * hscale : size * wscale;
 
-  // Use PixelRatio.roundToNearestPixel method in order to round the layout
-  // size (dp) to the nearest one that correspons to an integer number of pixels.
-  let finalValue = PixelRatio.roundToNearestPixel(
-    (WINDOW_HEIGHT * elemHeight) / 100
-  );
-  if (max) finalValue = finalValue >= max ? max : finalValue;
-  if (min) finalValue = finalValue <= min ? min : finalValue;
-
-  return finalValue;
-};
-
-export { hp, wp };
+    if (Platform.OS === 'ios') {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize));
+    } else {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize));
+    }
+}
